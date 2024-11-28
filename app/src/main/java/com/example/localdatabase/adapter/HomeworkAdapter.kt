@@ -1,5 +1,6 @@
 package com.example.localdatabase.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import com.example.localdatabase.databinding.ItemHomeworkBinding
 class HomeworkAdapter(private val onItemClickCallback: OnItemClickCallback) :
     RecyclerView.Adapter<HomeworkAdapter.HomeworkViewHolder>() {
 
-    private var listHomework = ArrayList<Homework>()
+    var listHomework = ArrayList<Homework>()
 
     fun setListHomework(listHomework: List<Homework>) {
         if (listHomework.isNotEmpty()) {
