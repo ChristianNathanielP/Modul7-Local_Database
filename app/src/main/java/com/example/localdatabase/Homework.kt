@@ -1,6 +1,5 @@
 package com.example.localdatabase
 
-import HomeworkAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.localdatabase.databinding.ActivityMainBinding
 import com.example.localdatabase.helper.HomeworkHelper
 import com.example.localdatabase.helper.MappingHelper
+import com.example.modu7.adapter.HomeworkAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -34,7 +34,7 @@ class HomeworkActivity : AppCompatActivity() {
     private val resultLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
-        if (result.resultCode == RESULT_OK && result.data != null) {
+        if (result.data != null) {
             val homework = result.data?.getParcelableExtra<Homework>(AddHomework.EXTRA_HOMEWORK)
             val position = result.data?.getIntExtra(AddHomework.EXTRA_POSITION, -1) ?: -1
 
